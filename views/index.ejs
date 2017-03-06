@@ -1,0 +1,24 @@
+<% include partials/header %>
+
+<% blogs.forEach(function(blog){ %>
+    <div class="ui container segment">
+        <a class="header blogTitle" href="/blogs/<%= blog._id%>"><%= blog.title %></a>
+        <p><%= blog.created.toDateString() %></p>
+        <div class="ui image rounded">
+            <img src="<%= blog.image %>">
+        </div>
+        <div class="description">
+             <p><%= blog.body.substring(0, 100) %> ...</p>
+        </div>
+        <a href="/blogs/<%= blog._id%>">
+            <div class="ui animated button" tabindex="0">
+                <div class="visible content">Read more</div>
+                <div class="hidden content">
+                    <i class="right arrow icon"></i>
+                </div>
+            </div>
+        </a>
+    </div>
+<% }); %>
+
+<% include partials/footer %>
